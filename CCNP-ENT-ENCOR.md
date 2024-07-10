@@ -118,6 +118,8 @@ spanning-tree mst configuration
 ### Networks
 
 Class A - First bit of first octet is set to 0
+Class B - First 2 bits of first octet are always 1 0
+Class C - First 3 bits of the first octet are always 1 1 0
 
 ### Admin Distance
 
