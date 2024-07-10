@@ -36,15 +36,16 @@ The original STP version.
 
 #### STP port costs
 
-Link Speed      Short-Mode STP Cost     Long-Mode STP Cost
-10 Mbps         100                     2,000,000
-100 Mbps        19                      200,000
-1 Gbps          4                       20,000
-10 Gbps         2                       2,000
-20 Gbps         1                       1,000
-100 Gbps        1                       200
-1 Tbps          1                       20
-10 Tbps         1                       2
+| Link Speed | Short-Mode STP Cost | Long-Mode STP Cost |
+| --- | ------- | ------- |
+| 10 Mbps | 100 | 2,000,000 |
+| 100 Mbps | 19 | 200,000 |
+| 1 Gbps | 4 | 20,000 |
+| 10 Gbps | 2 | 2,000 |
+| 20 Gbps | 1 | 1,000 |
+| 100 Gbps | 1 | 200 |
+| 1 Tbps | 1 | 20 |
+| 10 Tbps | 1 | 2 |
 
 Devices can be configured with the long mode interface cost with the command
 
@@ -157,12 +158,12 @@ type 5  Reply       Sent in response to a query
 
 #### metrics
 
-Serial          64 kbps     20,000 us       metric 40,512,000
-T1              1544        20,000          2,170,031
-Ethernet        10,000      1000            281,600
-FaEthernet      100,000     100             28,160
-GigEth          1,000,000   10              2816
-10 Gig          10,000,000  10              512
+| Serial | 64 kbps | 20,000 us | metric 40,512,000 |
+| T1 | 1544 | 20,000 | 2,170,031 |
+| Ethernet | 10,000 | 1000 | 281,600 |
+| FaEthernet | 100,000 | 100 | 28,160 |
+| GigEth | 1,000,000 | 10 | 2816 |
+| 10 Gig | 10,000,000 | 10 | 512 |
 
 #### wide metrics
 
@@ -220,11 +221,12 @@ Neighbors on a Broadcast network with elect DR/BDRs.  DR has the highest RID.
 Default reference BW is 100 Mbps.
 
 OSPF Interface Costs Using Default Settings
-T1          64
-Ethernet    10
-Fast Eth    1
-Gig         1
-10 Gig      1
+
+| T1 | 64 |
+| Ethernet | 10 |
+| Fast Eth | 1 |
+| Gig | 1 |
+| 10 Gig | 1 |
 
 
 ### OSPFv3
