@@ -222,6 +222,8 @@ Default reference BW is 100 Mbps.
 
 OSPF Interface Costs Using Default Settings
 
+| Link | Cost |
+| --- | ---|
 | T1 | 64 |
 | Ethernet | 10 |
 | Fast Eth | 1 |
