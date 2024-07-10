@@ -121,16 +121,18 @@ Class A - First bit of first octet is set to 0
 
 ### Admin Distance
 
-Connected           0
-Static              1
-EIGRP Summary       5
-eBGP                20
-EIGRP int           90
-OSPF                110
-IS-IS               115
-RIP                 120
-EIGRP ext           170
-iBGP                200
+| Type | Distance |
+| --- | --- |
+| Connected | 0 |
+| Static | 1 |
+| EIGRP Summary | 5 |
+| eBGP | 20 |
+| EIGRP int | 90 |
+| OSPF | 110 |
+| IS-IS | 115 |
+| RIP | 120 |
+| EIGRP ext | 170 |
+| iBGP | 200 |
 
 ### EIGRP
 
@@ -142,28 +144,32 @@ DUAL - diffusing update algorithm
 
 Uses bandwidth and delay metrics.
 
-Successor route         route with lowest path metric to reach a destination
-Successor               the first next-hop router for the successor route
-Feasible Distance (FD)  metric value for lowest metric path to a destination
-Reported Distance (RD)  distance reported by a router to reach a prefix.  FD for advertising router.
-Feasibility condition   for a route to be a backup route, the RD for that route must be less than the FD calculated locally.  This guarantees a loop-free path.
+Successor route  - route with lowest path metric to reach a destination
+Successor - the first next-hop router for the successor route
+Feasible Distance (FD) - metric value for lowest metric path to a destination
+Reported Distance (RD) - distance reported by a router to reach a prefix.  FD for advertising router.
+Feasibility condition - for a route to be a backup route, the RD for that route must be less than the FD calculated locally.  This guarantees a loop-free path.
 
 #### packet types to communicate with other routers
 
-type 1  Hello       Used for discovery of EIGRP neighbors and detecting when neighbor is not available
-type 2  Request     Used to get info from one or more neighbors
-type 3  Update      Used to transmit routing & reachability info
-type 4  Query       Sent out to search for another path during convergence
-type 5  Reply       Sent in response to a query
+| Type | Msg | Description |
+| --- | --- | --- |
+| 1 | Hello | Used for discovery of EIGRP neighbors and detecting when neighbor is not available |
+| 2 | Request | Used to get info from one or more neighbors |
+| 3 | Update | Used to transmit routing & reachability info |
+| 4 | Query | Sent out to search for another path during convergence |
+| 5 | Reply | Sent in response to a query |
 
 #### metrics
 
-| Serial | 64 kbps | 20,000 us | metric 40,512,000 |
-| T1 | 1544 | 20,000 | 2,170,031 |
-| Ethernet | 10,000 | 1000 | 281,600 |
-| FaEthernet | 100,000 | 100 | 28,160 |
-| GigEth | 1,000,000 | 10 | 2816 |
-| 10 Gig | 10,000,000 | 10 | 512 |
+| Link | Speed | Delay | Metric |
+| --- | --- | --- | --- |
+| Serial | 64 kbps | 20,000 &micro;s | 40,512,000 |
+| T1 | 1544 | 20,000 &micro;s | 2,170,031 |
+| Ethernet | 10,000 | 1000 &micro;s | 281,600 |
+| FaEthernet | 100,000 | 100 &micro;s | 28,160 |
+| GigEth | 1,000,000 | 10 &micro;s | 2816 |
+| 10 Gig | 10,000,000 | 10 &micro;s | 512 |
 
 #### wide metrics
 
