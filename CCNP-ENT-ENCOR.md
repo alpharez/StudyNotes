@@ -117,9 +117,9 @@ spanning-tree mst configuration
 
 ### Networks
 
-Class A - First bit of first octet is set to 0
-Class B - First 2 bits of first octet are always 1 0
-Class C - First 3 bits of the first octet are always 1 1 0
+- Class A - First bit of first octet is set to 0
+- Class B - First 2 bits of first octet are always 1 0
+- Class C - First 3 bits of the first octet are always 1 1 0
 
 ### Admin Distance
 
@@ -151,6 +151,8 @@ Successor - the first next-hop router for the successor route
 Feasible Distance (FD) - metric value for lowest metric path to a destination
 Reported Distance (RD) - distance reported by a router to reach a prefix.  FD for advertising router.
 Feasibility condition - for a route to be a backup route, the RD for that route must be less than the FD calculated locally.  This guarantees a loop-free path.
+
+- [ ] do EVE-NG labs
 
 #### packet types to communicate with other routers
 
@@ -238,7 +240,6 @@ OSPF Interface Costs Using Default Settings
 | Gig | 1 |
 | 10 Gig | 1 |
 
-
 ### OSPFv3
 
 ### BGP
@@ -249,25 +250,105 @@ OSPF Interface Costs Using Default Settings
 
 ### QoS
 
+#### QoS Components
+
+#### QoS Policy
+
 ### IP Services
+
+#### NTP and PTP
+
+#### NAT/PAT
+
+#### HSRP and VRRP
+
+#### Multicast protocols, such as RPF check, PIM and IGMP v2/v3
 
 ## Overlay
 
 ## Wireless
 
+### Layer 1 concepts such as RF, power, RSSI, SNR, interference, noise, bands, channels, and wireless client devices capabilities
+
+### AP modes and atennae types
+
+### AP discovery and join process (discovery algorithms and WLC selection)
+
+### Describe main principles and use cases for Layer 2 and Layer 3 roaming
+
+### Troubleshoot using GUI only
+
+### Describe wireless segmentation with groups, profiles and tags
+
 ## Architecture
+
+### HW and SW switching mechanisms
+
+#### CEF
+
+#### CAM
+
+#### TCAM
+
+#### FIB
+
+#### RIB
+
+#### Adjacency tables
 
 ### Enterprise Network Design
 
 ### Wireless Network Design
 
+#### Wireless Deployment models (centralized, distributed, controller-less, controller-based, cloud, remote branch)
+
+#### Location services in a WLAN design
+
+#### client density
+
 ### Cisco SD-WAN
 
+#### SD-WAN control and data planes elements
+
+#### Benefits and limitations of SD-WAN solutions
+
 ### Cisco SD-Access
+
+#### SD-Access control and data planes elements
+
+#### Traditional campus interoperating with SD-Access
 
 ### QoS Configurations
 
 ## Security
+
+### Configure and verify device access control
+
+### Configure and verify infrastructure security features
+
+### Describe REST API security
+
+### Configure and verify wireless security features
+
+#### 802.1x
+
+#### WebAuth
+
+#### PSK
+
+#### EAPOL (4-way handshake)
+
+### Network Security Design
+
+#### Threat Defense
+
+#### Endpoint Security
+
+#### Next Gen Firewall
+
+#### TrustSec and MACsec
+
+#### NAC with 802.1x, MAB and Webauth
 
 ## SDN
 
