@@ -246,6 +246,40 @@ OSPF Interface Costs Using Default Settings
 
 ### Multicast
 
+Multicast uses Class D addresses (1110).
+
+Range assignments
+| Description | Range |
+| --- | --- |
+| Reserved Link Local | 224.0.0.0/24 |
+| Globally scoped | 224.0.1.0 - 238.255.255.255 |
+| Source Scoped | 232.0.0.0/8 |
+| GLOP addresses | 233.0.0.0/8 |
+| Limited Scope addresses | 239.0.0.0/8 |
+
+Link Local Addresses
+| IP Address | Usage |
+| --- | --- |
+| 224.0.0.1 | All systems on this subnet |
+| 224.0.0.2 | All routers on this subnet |
+| 224.0.0.5 | OSPF routers |
+| 224.0.0.6 | OSPF designated routers |
+| 224.0.0.12 | DHCP server/relay agent |
+
+224.0.1.0 through 238.255.255.255 are called globally scoped addresses, used to multicast data between orgs and across the Internet.
+
+224.0.1.1 - reserved for NTP
+
+Source scoped addresses are reserved for Source Specific Mutlicast (SSM), an extension of the PIM protocol.
+
+GLOP addresses reserved for statically defined addresses by orgs that have an AS number reserved.
+
+Limited Scope addresses or administratively scoped addresses are constrained to a local group or an org.
+
+#### L2 multicast
+
+
+
 ## Services
 
 ### QoS
@@ -253,6 +287,8 @@ OSPF Interface Costs Using Default Settings
 #### QoS Components
 
 #### QoS Policy
+
+- DSCP ?
 
 ### IP Services
 
@@ -263,6 +299,8 @@ OSPF Interface Costs Using Default Settings
 #### HSRP and VRRP
 
 #### Multicast protocols, such as RPF check, PIM and IGMP v2/v3
+
+
 
 ## Overlay
 
@@ -285,6 +323,8 @@ OSPF Interface Costs Using Default Settings
 ### HW and SW switching mechanisms
 
 #### CEF
+
+CEF uses separate reachability info in the CEF table and the forwarding information in the adjacency table.  It can point directly to the forwarding info rather than to the recursed next hop in order to resolve recursive routes.
 
 #### CAM
 
