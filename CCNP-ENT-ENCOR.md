@@ -229,13 +229,13 @@ OSPF runs using protocol 89.  It uses multicast where possible to reduce unneces
 #### Neighbor States
 
 - Down
-- Attempt       relevant to NBMA networks
-- Init          hello packet received from another router
-- 2-Way         bidirectional communication
-- ExStart       first state in forming adjacency
-- Exchange      routers are exchanging links states by using DBD packets
-- Loading       LSR packets are sent to the neighbor
-- Full          neighbors fully adjacent
+- Attempt, relevant to NBMA networks
+- Init, hello packet received from another router
+- 2-Way, bidirectional communication
+- ExStart, first state in forming adjacency
+- Exchange, routers are exchanging links states by using DBD packets
+- Loading, LSR packets are sent to the neighbor
+- Full, neighbors fully adjacent
 
 #### router ID
 
@@ -262,6 +262,27 @@ OSPF Interface Costs Using Default Settings
 ### OSPFv3
 
 ### BGP
+
+TCP 179 for neighbor relationships.
+
+NLRI - Network Layer Reachability Information.  Prefix and length.
+
+Advertises a Collection of Path Attributes for Path Selection.
+
+Path Vector Routing Protocol
+
+BGP Path Selection Algorithm
+
+We Love Oranges AS Oranges Mean Pure Refreshment
+
+1) Weight (locally significant, higher is preferred)
+2) Local Preference
+3) Originate (route locally sourced)
+4) AS Path Length
+5) Origin Type (i is preferred to e, e is preferred to ?, redistributed)
+6) Multi-Exit Discriminator (MED), lower med is preferred
+7) Paths, prefer eBGP over iBGP
+8) Router ID, lowest router ID is preferred
 
 ### Multicast
 
