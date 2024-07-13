@@ -190,12 +190,29 @@ OSPF runs using protocol 89.  It uses multicast where possible to reduce unneces
 
 #### OSPF Packet types
 
-Type        Name                Function
-1           Hello               for discovering and maintaining neighbors
-2           DB description      summarizing database contents
-3           LSR                 Link state request for DB downloads
-4           LSU                 Link state update for DB updates, normally a response to a LSR
-5           LSA                 Link state ack, flooding of acknowledgments
+| Type | Name | Function |
+| --- | --- | --- |
+| 1 | Hello | for discovering and maintaining neighbors |
+| 2 | DB description | summarizing database contents |
+| 3 | LSR | Link state request for DB downloads |
+| 4 | LSU | Link state update for DB updates, normally a response to a LSR |
+| 5 | LSA | Link state ack, flooding of acknowledgments |
+
+| LSA Type | Description |
+| --- | --- |
+| Type 1 LSA | Advertises directly connected networks |
+| Type 2 LSA | created for each transit network in an area where a DR is elected |
+| Type 3 LSA | summary LSA sent from one area to another, used to advertise a network in the source area |
+| Type 4 LSA | Summary ASBR LSA, created by an ABR to tell members of an area how to reach an ASBR |
+| Type 5 LSA | AS External LSA, created by an ASBR to advertise networks in a different AS |
+| Type 7 LSA | NSSA LSA from an ASBR into an NSSA to advertise networks from a different AS |
+
+- ABR : Area Border Router
+- ASBR : Autonomous System Boundary Router
+- Stub Area : Only connects to Area 0
+- Totally Stubby Area : Area that only needs a summary default route to get out
+- Not-So-Stubby Area (NSSA) : Stub Area that connects to a different AS
+- Totally NSSA : NSSA that sends a summary advertisement out
 
 #### Hello Packet Fields
 
