@@ -65,6 +65,8 @@ STP deems a switch more preferable if the priority of the bridge ID is lower, if
 
 ### 802.1W RSTP
 
+Time to Convergence?
+
 #### Port States
 
 - Discarding
@@ -278,7 +280,9 @@ Limited Scope addresses or administratively scoped addresses are constrained to 
 
 #### L2 multicast
 
+IANA owns a block of MAC addresses that start with 01:00:5E, half of this block is allocated for multicast: 0100.5e00.0000 through 0100.5e7f.ffff.  This allows for 23 bits in ethernet address to correspond to the IP multicast group address.
 
+Because the upper 5 bits of the IP multicast address are dropped in the mapping, the resulting address is not unique.
 
 ## Services
 
@@ -300,13 +304,64 @@ Limited Scope addresses or administratively scoped addresses are constrained to 
 
 #### Multicast protocols, such as RPF check, PIM and IGMP v2/v3
 
+IGMP is used to dynamically register individual hosts in a multicast group on a particular LAN. Hosts identify group memberships by sending IGMP messages to their local multicast router. Under IGMP, routers listen to IGMP messages and periodically send out queries to discover which groups are active or inactive on a particular subnet.
 
+In Version 2, the following four types of IGMP messages exist:
+
+- Membership query
+- Version 1 membership report
+- Version 2 membership report
+- Leave group
+
+CGMP is a Cisco-developed protocol that allows Catalyst switches to leverage IGMP information on Cisco routers to make Layer 2 forwarding decisions. You must configure CGMP on the multicast routers and the Layer 2 switches. The result is that, with CGMP, IP multicast traffic is delivered only to those Catalyst switch ports that are attached to interested receivers. All other ports that have not explicitly requested the traffic will not receive it unless these ports are connected to a multicast router. Multicast router ports must receive every IP multicast data packet.
+
+IGMP Snooping is an IP multicast constraining mechanism that runs on a Layer 2 LAN switch. IGMP Snooping requires the LAN switch to examine, or "snoop," some Layer 3 information (IGMP join/leave messages) in the IGMP packets sent between the hosts and the router. When the switch hears the IGMP host report from a host for a particular multicast group, the switch adds the port number of the host to the associated multicast table entry. When the switch hears the IGMP leave group message from a host, the switch removes the table entry of the host.
+
+PIM is IP routing protocol-independent and can leverage whichever unicast routing protocols are used to populate the unicast routing table, including Enhanced Interior Gateway Routing Protocol (EIGRP), Open Shortest Path First (OSPF), Border Gateway Protocol (BGP), and static routes. PIM uses this unicast routing information to perform the multicast forwarding function. Although PIM is called a multicast routing protocol, it actually uses the unicast routing table to perform the RPF check function instead of building up a completely independent multicast routing table. Unlike other routing protocols, PIM does not send and receive routing updates between routers.
+
+PIM Dense Mode (PIM-DM)
+PIM-DM uses a push model to flood multicast traffic to every corner of the network. This push model is a brute force method for delivering data to the receivers. This method would be efficient in certain deployments in which there are active receivers on every subnet in the network.
+
+PIM-DM initially floods multicast traffic throughout the network. Routers that have no downstream neighbors prune back the unwanted traffic. This process repeats every 3 minutes.
+
+PIM Sparse Mode (PIM-SM)
+PIM-SM uses a pull model to deliver multicast traffic. Only network segments with active receivers that have explicitly requested the data will receive the traffic.
+
+PIM-SM distributes information about active sources by forwarding data packets on the shared tree. Because PIM-SM uses shared trees (at least, initially), it requires the use of a rendezvous point (RP). The RP must be administratively configured in the network.
+
+Pragmatic General Multicast (PGM)
+PGM is a reliable multicast transport protocol for applications that require ordered, duplicate-free, multicast data delivery from multiple sources to multiple receivers. PGM guarantees that a receiver in a multicast group either receives all data packets from transmissions and retransmissions or can detect unrecoverable data packet loss.
 
 ## Overlay
 
 ## Wireless
 
 ### Layer 1 concepts such as RF, power, RSSI, SNR, interference, noise, bands, channels, and wireless client devices capabilities
+
+Power changes and their corresponding dB Values
+
+| Power Change | dB Value |
+| --- | --- |
+| = | 0 dB |
+| x2 | +3 dB |
+| /2 | -3 dB |
+| x10 | +10 dB |
+| /10 | -10 dB |
+
+RSSI - Received Signal Strength Indicator.  relative value 0-255 where 0 is weakest and 255 is strongest.
+
+SNR - Signal to Noise ratio
+
+Summary of common 802.11 standard amendments
+
+| Standard | 2.4 GHz? | 5 GHz? | Data Rates Supported | Channel Widths Supported |
+| --- | --- | --- | --- | --- |
+| 802.11b | Yes | No | 1, 2, 5.5, 11 Mbps | 22 MHz |
+| 802.11g | Yes | No | 6, 9, 12, 18, 24, 36, 48, 54 Mbps | 22 MHz |
+| 802.11a | No | Yes | 6, 9, 12, 18, 24 ,36, 48, 54 Mbps | 20 MHz |
+| 802.11n | Yes | Yes | Up to 150 Mbps per spatial stream, up to 4 spatial streams | 20 or 40 MHz |
+| 802.11ac | No | Yes | Up to 866 Mbps per spatial stream, up to 4 spatial streams | 20, 40, 80 or 160 MHz |
+| 802.11ax | Yes | Yes | Up to 1.2 Gbps per spatial stream, up to 8 spatial streams | 20, 40, 80, 160 MHz |
 
 ### AP modes and atennae types
 
@@ -326,15 +381,21 @@ Limited Scope addresses or administratively scoped addresses are constrained to 
 
 CEF uses separate reachability info in the CEF table and the forwarding information in the adjacency table.  It can point directly to the forwarding info rather than to the recursed next hop in order to resolve recursive routes.
 
+dCEF allows line card forwarding
+
 #### CAM
 
 #### TCAM
 
 #### FIB
 
+CEF Forwarding Information Base (FIB) - Layer 3 Info
+
 #### RIB
 
 #### Adjacency tables
+
+CEF Adjacency Table - info on next hop devices
 
 ### Enterprise Network Design
 
