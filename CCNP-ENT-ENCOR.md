@@ -495,6 +495,40 @@ CEF Adjacency Table - info on next hop devices
 
 ### VRF, GRE and IPsec tunneling
 
+#### VRF on routers
+
+#### GRE
+
+```ios
+interface tunnel 1
+    tunnel source <interface>
+    tunnel destination <ip>
+    ip addr <addr> <mask>
+```
+
+#### IPsec
+
+```ios
+crypto isakmp policy 10
+    encryption aes
+    authentication pre-share
+    group 14
+crypto isakmp key <key> address <addr or 0.0.0.0>
+
+ip access-list extneded <ACL>
+    permit gre any any
+
+crypto ipsec transform-set <TR-NAME> esp-aes esp-sha-hmac
+
+crypt map <TUN> 10 ipsec-isakmp
+    set peer <ip>
+    set transform-set <TR-NAME>
+    match address <ACL>
+
+interface <INT>
+    crypto map <TUN>
+````
+
 ### LISP and VXLAN
 
 ### Automation
@@ -512,3 +546,20 @@ CEF Adjacency Table - info on next hop devices
 ### DNA Center
 
 ### NETCONF and RESTCONF
+
+### LABS TO DO
+
+-[x] VRF
+-[x] GRE and IPsec tunneling
+-[ ] RSTP, MST, root guard, BPDU guard and stuff like that
+-[ ] OSPF v2/v3, summarization and filtering
+-[x] eBGP
+-[ ] NAT/PAT
+-[ ] HSRP/VRRP
+-[ ] Flexible NetFlow
+-[ ] SPAN/RSPAN/ERSPAN
+-[ ] IPSLA
+-[ ] NETCONF and RESTCONF
+-[ ] device access control, lines and user auth, auth and authorization using AAA
+-[ ] ACLs, CoPP
+-[ ] Wireless 802.1x, WebAuth, PSK, EAPOL (4-way  handshake)
