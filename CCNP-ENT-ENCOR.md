@@ -549,17 +549,17 @@ interface <INT>
 
 ### LABS TO DO
 
--[x] VRF
--[x] GRE and IPsec tunneling
--[ ] RSTP, MST, root guard, BPDU guard and stuff like that
--[ ] OSPF v2/v3, summarization and filtering
--[x] eBGP
--[ ] NAT/PAT
--[ ] HSRP/VRRP
--[ ] Flexible NetFlow
--[ ] SPAN/RSPAN/ERSPAN
--[ ] IPSLA
--[ ] NETCONF and RESTCONF
--[ ] device access control, lines and user auth, auth and authorization using AAA
--[ ] ACLs, CoPP
--[ ] Wireless 802.1x, WebAuth, PSK, EAPOL (4-way  handshake)
+- [x] VRF
+- [x] GRE and IPsec tunneling
+- [ ] RSTP, MST, root guard, BPDU guard and stuff like that
+- [ ] OSPF v2/v3, summarization and filtering
+- [x] eBGP
+- [ ] NAT/PAT
+- [ ] HSRP/VRRP
+- [ ] Flexible NetFlow
+- [ ] SPAN/RSPAN/ERSPAN
+- [ ] IPSLA
+- [ ] NETCONF and RESTCONF
+- [ ] device access control, lines and user auth, auth and authorization using AAA
+- [ ] ACLs, CoPP
+- [ ] Wireless 802.1x, WebAuth, PSK, EAPOL (4-way  handshake)
