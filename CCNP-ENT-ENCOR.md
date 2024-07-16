@@ -34,6 +34,8 @@ The original STP version.
 - hello time
 - forward delay
 
+BPDUs are sent out with the destination as the STP multicast address 01-80-c2-00-00-00.
+
 #### STP port costs
 
 | Link Speed | Short-Mode STP Cost | Long-Mode STP Cost |
@@ -527,7 +529,7 @@ crypt map <TUN> 10 ipsec-isakmp
 
 interface <INT>
     crypto map <TUN>
-````
+```
 
 ### LISP and VXLAN
 
